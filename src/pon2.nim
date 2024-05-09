@@ -53,7 +53,7 @@ when isMainModule:
     elif args["permute"] or args["p"]:
       args.runPermuter
     else:
-      args.runGuiApplication
+      doAssert false
 
 when defined(nimdoc):
   import ./pon2pkg/app

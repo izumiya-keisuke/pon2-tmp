@@ -7,9 +7,8 @@
 
 import std/[browsers, options, random, sequtils, strformat, strutils, uri]
 import docopt
-import nigui
 import ../[misc]
-import ../../app/[generate, gui, nazopuyo, permute, simulator, solve]
+import ../../app/[generate, nazopuyo, permute, simulator, solve]
 import ../../core/[field, fieldtype, nazopuyo, puyopuyo, requirement, rule]
 
 # ------------------------------------------------
@@ -220,27 +219,6 @@ proc runPermuter*(args: Table[string, Value]) {.inline.} =
   {.pop.}
 
 # ------------------------------------------------
-# GUI Application
-# ------------------------------------------------
-
-proc runGuiApplication*(args: Table[string, Value]) {.inline.} =
-  ## Runs the GUI application.
-  let guiApplication = new GuiApplication
-  case args["<uri>"].kind
-  of vkNone:
-    guiApplication[] = initGuiApplication()
-  of vkStr:
-    let simulator = new Simulator
-    simulator[] = ($args["<uri>"]).parseUri.parseSimulator
-    guiApplication[] = simulator.initGuiApplication
-  else:
-    assert false
-
-  app.init
-  guiApplication.initGuiApplicationWindow.show
-  app.run
-
-# ------------------------------------------------
 # Command-line Arguments
 # ------------------------------------------------
 
@@ -251,13 +229,11 @@ const Document =
 * なぞぷよ解探索
 * なぞぷよ生成
 * なぞぷよツモ探索
-* GUIアプリケーション
 
 Usage:
   pon2 (solve | s) <question> [-bB] [-h | --help]
   pon2 (generate | g) [-bBdD] [options] [-h | --help]
   pon2 (permute | p) <question> [(-f <>)... -bBdD] [-h | --help]
-  pon2 [<uri>] [-h | --help]
 
 Options:
   -h --help   このヘルプ画面を表示する．

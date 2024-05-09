@@ -11,7 +11,7 @@ bin = @["pon2"]
 
 # Dependencies
 
-requires "nim ^= 2.0.2"
+requires "nim ^= 2.0.4"
 
 requires "docopt ^= 0.7.1"
 requires "karax ^= 1.3.3"
