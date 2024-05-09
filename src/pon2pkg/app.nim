@@ -59,21 +59,3 @@ export
   simulator.parseSimulator, simulator.operate
 export solve.solve
 
-when defined(js):
-  export color.toColorCode
-  export
-    gui.runKeyboardEventHandler, gui.initKeyboardEventHandler,
-    gui.initGuiApplicationNode
-  export key.toKeyEvent
-  export
-    marathon.runKeyboardEventHandler, marathon.initKeyboardEventHandler,
-    marathon.initMarathonNode
-  export simulator.initSimulatorNode
-else:
-  export color.toNiguiColor
-  export
-    gui.GuiApplicationControl, gui.GuiApplicationWindow, gui.runKeyboardEventHandler,
-    gui.initKeyboardEventHandler, gui.initGuiApplicationControl,
-    gui.initGuiApplicationWindow
-  export key.toKeyEvent
-  export simulator.SimulatorControl, simulator.initSimulatorControl

@@ -47,7 +47,7 @@ main()
     # NOTE: On Windows and non-c backend, the test fails due to Nim's bug
     fileContent =
       FileContentTemplate.replace(Matrix, matrixSeq.join "; ").replace(
-        Targets, when defined(windows): "c" else: "c cpp js"
+        Targets, when defined(windows): "c" else: "c cpp"
       )
 
   for kind, path in currentSourcePath().Path.parentDir.walkDir:
