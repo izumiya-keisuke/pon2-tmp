@@ -34,8 +34,8 @@ type
     number*: RequirementNumber
 
 const
-  MaxTrialCountSplit = 10000
-  MaxTrialCountGenerate = 100000
+  MaxTrialCountSplit = 10_000
+  MaxTrialCountGenerate = 100_000_000
 
 # ------------------------------------------------
 # Misc
